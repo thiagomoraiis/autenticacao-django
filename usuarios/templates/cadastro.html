@@ -2,6 +2,44 @@
 
 {% block content %}
 <div class="container">
-    <h1></h1>
+    <h1 class="text-gray m-auto">Cadastro</h1>
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <form class="form" action="" method="post">{% csrf_token %}
+                {{ bootstrap_messages }}
+                <div class="col mb-3">
+                    <label class="form-label" for="first_name">Primeiro Nome:</label>
+                    <input class="form-control" type="text" name="first_name" id="first_name">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="last_name">Sobrenome:</label>
+                    <input class="form-control" type="text" name="last_name" id="last_name">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="">Nome do usuário:</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Jonh">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="email" >Email:</label>
+                    <input class="form-control" type="email" name="email" id="email">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="idade" >Idade:</label>
+                    <input class="form-control" type="number" name="idade" id="idade">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="">Data de Nascimento</label>
+                    <input class="form-control" type="date" name="data_nascimento" id="data_nascimento">
+                </div>
+                <div class="col mb-3">
+                    <label class="form-label" for="">Senha:</label>
+                    <input class="form-control" type="password" name="password" id="password">
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
