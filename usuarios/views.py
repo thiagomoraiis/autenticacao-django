@@ -6,7 +6,9 @@ from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'index.html')
+    user = CustomUser.objects.all()
+    context = {'user':user}
+    return render(request, 'index.html', context)
 
 @login_required
 def pagina1(request):
@@ -30,11 +32,11 @@ def cadastro(request):
 
         if user:
             messages.error(request, 'Já existe um usuario com esse nome! Tente outro')
-        
+
         novo_usario = CustomUser.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password,data_nascimento=data_nascimento, idade=idade)
         novo_usario.save()
         messages.success(request, 'Usuario cadastrado!')
-
+        return redirect('login')
     else:
         return render(request, 'cadastro.html')
     

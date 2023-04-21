@@ -4,5 +4,22 @@
 {% bootstrap_css %}
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Listando Usuarios</h1>
+            {% for i in user %}
+            <div class="border border-dark">
+                <p>Nome de usuario: {{ i.username }}</p>
+                <p>Nome Completo {{ i.first_name }} {{ i.last_name }}</p>
+                <p>Email {{ i.email }}</p>
+                <p>Idade {{ i.idade }}</p>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% bootstrap_javascript %}
 {% endblock %}
