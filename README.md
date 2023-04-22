@@ -3,22 +3,22 @@
 <p>No linux:</p>
 
 <pre class="notranslate">
-    <code>
-        #Clone o repositorio
-        git clone https://github.com/thiagomoraiis/autenticacao-django.git
-        cd autenticacao-django
+<code>
+    #Clone o repositorio
+    git clone https://github.com/thiagomoraiis/autenticacao-django.git
+    cd autenticacao-django
 
-        #Crie e ative o ambiente virtual
-        python3 -m venv venv
-        source venv/bin/activate
+    #Crie e ative o ambiente virtual
+    python3 -m venv venv
+    source venv/bin/activate
 
-        #Instale as dependencias necessarias
-        pip install -r requirements.txt
+    #Instale as dependencias necessarias
+    pip install -r requirements.txt
 
-        #Rode o servidor
-        python3 manage.py runserver
+    #Rode o servidor
+    python3 manage.py runserver
 
-    </code>
+</code>
 </pre>
 
 <p>No windowns</p>
