@@ -6,7 +6,7 @@ from django.contrib.auth import login as login_django
 from .models import CustomUser
 from django.contrib import messages
 
-
+@login_required
 def index(request):
     user = CustomUser.objects.all()
     context = {'user':user}
@@ -15,13 +15,13 @@ def index(request):
 
 #decorador que sinaliza que a pagina so pode ser acessada
 #caso o usuario esteja logado
-@login_required
+@login_required(login_url='/accounts/login/')
 def pagina1(request):
     return render(request, 'pag1.html')
 
 #decorador que sinaliza que a pagina so pode ser acessada
 #caso o usuario esteja logado
-@login_required
+@login_required(login_url='/accounts/login/')
 def pagina2(request):
     return render(request, 'pag2.html')
 
@@ -67,7 +67,7 @@ def login(request):
         #a pagina a pagina 1
         if user:
             login_django(request, user)
-            return redirect('pag1')
+            return redirect('home')
         else:
             #caso não exista esse usuario, será mostrado uma mensagem de erro no template
             messages.error(request, 'Essa pagina não existe')
