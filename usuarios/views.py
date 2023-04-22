@@ -48,7 +48,7 @@ def cadastro(request):
         novo_usario = CustomUser.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password,data_nascimento=data_nascimento, idade=idade)
         novo_usario.save()
         messages.success(request, 'Usuario cadastrado!')
-        return redirect('pag1')
+        return redirect('login')
     else:
         return render(request, 'cadastro.html')
     
