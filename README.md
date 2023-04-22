@@ -15,7 +15,7 @@ Como rodar o projeto:
 #Clone o repositorio
 git clone https://github.com/thiagomoraiis/autenticacao-django.git
 cd autenticacao-django
-
+<div></div>
 
 #Crie e ative o ambiente virtual
 python3 -m venv venv
@@ -38,7 +38,7 @@ python3 manage.py runserver
 #Clone o repositorio
 git clone https://github.com/thiagomoraiis/autenticacao-django.git
 cd autenticacao-django
-
+<div></div>
 
 #Crie e ative o ambiente virtual
 python3 -m venv venv
