@@ -1,7 +1,5 @@
 <h2>Auntenticação com django</h2>
-<hr>
 <p>Autenticação simples, usando a classe abstrata "AbstractUser" para criar e autenticar usarios, adicionado campos extras, como: idade, ano de nascimento</p>
-<hr>
 <h3>
 Como rodar o projeto:
 <g-emoji class="g-emoji" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f973.png">
