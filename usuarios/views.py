@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
 from django.contrib.auth import logout
+from django.contrib.auth import login as login_django
 from .models import CustomUser
 from django.contrib import messages
 
@@ -12,6 +14,8 @@ def index(request):
 
 @login_required
 def pagina1(request):
+    if request.user.is_authenticated:
+        pass
     return render(request, 'pag1.html')
 
 @login_required
@@ -36,10 +40,24 @@ def cadastro(request):
         novo_usario = CustomUser.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password,data_nascimento=data_nascimento, idade=idade)
         novo_usario.save()
         messages.success(request, 'Usuario cadastrado!')
-        return redirect('login')
+        return redirect('registration/login')
     else:
         return render(request, 'cadastro.html')
     
-#def logout(request):
-#    logout(request)
-#    return redirect('login')
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            login_django(request, user)
+            return redirect('pag1')
+    else:
+        return render(request, 'login.html')
+
+
+def logout(request):
+    logout(request)
+    return redirect('login')
