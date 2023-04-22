@@ -40,9 +40,10 @@ def cadastro(request):
         novo_usario = CustomUser.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password,data_nascimento=data_nascimento, idade=idade)
         novo_usario.save()
         messages.success(request, 'Usuario cadastrado!')
-        return redirect('registration/login')
+        return redirect('pag1')
     else:
         return render(request, 'cadastro.html')
+    
     
 def login(request):
     if request.method == 'POST':
@@ -54,10 +55,11 @@ def login(request):
         if user:
             login_django(request, user)
             return redirect('pag1')
+        else:
+            messages.error(request, 'Essa pagina não existe')
     else:
         return render(request, 'login.html')
 
-
-def logout(request):
+def logout_django(request):
     logout(request)
     return redirect('login')
